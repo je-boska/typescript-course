@@ -1,26 +1,21 @@
-function add(n1: number, n2: number) {
-    return n1 + n2
+let userInput: unknown
+let userName: string
+
+userInput = 5
+userInput = "Jon Eirik"
+
+// WITH A TYPE CHECK, A VARIABLE CAN BE ASSIGNED TO VARIABLE OF TYPE UNKNOWN
+if (typeof userInput === "string") {
+    userName = userInput
 }
 
-function printResult(num: number): void {
-    console.log("Result: " + num)
+// FUNCTION OF TYPE NEVER, WOULD IMPLICITLY BE VOID
+function generateError(message: string, code: number): never {
+    throw { message: message, errorCode: code }
+
+    // Another example of a function of type never:
+    
+    // while (true) {}
 }
 
-function addAndHandle(n1: number, n2: number, cb: (num: number) => void) {
-    const result = n1 + n2
-    cb(result)
-}
-
-printResult(add(5, 12))
-
-let combineValues: (a: number, b: number) => number
-
-combineValues = add
-// combineValues = printResult
-// combineValues = 5
-
-console.log(combineValues(8, 8))
-
-addAndHandle(10, 20, (result) => {
-    console.log(result)
-})
+generateError("An error occured", 500)
