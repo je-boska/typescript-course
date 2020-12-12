@@ -1,38 +1,15 @@
-// ASSIGNING TYPES TO AN OBJECT
-// const person: {
-//     name: string
-//     age: number
-//     hobbies: string[]
-//     role: [number, string]
-// } = {
-//     name: "Jon Eirik",
-//     age: 34,
-//     hobbies: [ "Cooking", "Eating" ],
-//     role: [2, "author"]
-// }
-
-// PUSHING IS ALLOWED ON TUPLES
-// person.role.push("admin")
-// person.role[1] = 10
-
-enum Role { ADMIN, READ_ONLY, AUTHOR }
-
-const person = {
-    name: "Jon Eirik",
-    age: 34,
-    hobbies: [ "Cooking", "Eating" ],
-    role: Role.ADMIN
+function combine(input1: number | string, input2: number | string) {
+    let result
+    if (typeof input1 === "number" && typeof input2 === "number") {
+        result = input1 + input2
+    }  else {
+        result = input1.toString() + input2.toString()
+    }
+    return result
 }
 
-let favoriteActivities: string[]
-favoriteActivities = ["Sports"]
+const combinedAges = combine(30, 26)
+console.log(combinedAges)
 
-console.log(person.name)
-
-for (const hobby of person.hobbies) {
-    console.log(hobby.toUpperCase())
-}
-
-if (person.role === Role.ADMIN) {
-    console.log("is admin")
-}
+const combinedNames = combine("Jon Eirik", "Petra")
+console.log(combinedNames)
