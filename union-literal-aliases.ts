@@ -1,4 +1,6 @@
+// TYPE ALIAS WITH UNION TYPE
 type Combinable = number | string
+// TYPE ALIAS WITH UNION TYPE LITERALS
 type ConversionDescriptor = "as-number" | "as-text"
 
 function combine(input1: Combinable, input2: Combinable, resultConversion: ConversionDescriptor ) {
